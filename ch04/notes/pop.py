@@ -30,3 +30,17 @@ for i, v in enumerate(mynums):
 
 print(mynums)
 
+i = 0
+while i < 10:
+    print(i)
+    i += 3
+
+print("Enter numbers to sum [q to quit]:")
+sum = 0
+while True:
+    value = input("number:")
+    if value.isdigit():
+        value = int(value)
+
+
+
