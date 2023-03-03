@@ -3,7 +3,7 @@ import random
 x = random.randint(1,10)
 
 correct = x
-tries = 3
+tries = 2
 
 while tries != 0:
   guess = int(input())
