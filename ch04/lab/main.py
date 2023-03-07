@@ -18,12 +18,12 @@ radius = 397
 
 active = True
 
-
 while active:
    for event in pygame.event.get():
       if event.type == pygame.QUIT:
          active = False
    pygame.display.flip()
+
 
    pygame.draw.circle(window,green,(circleX,circleY),radius) 
    pygame.draw.line(window,red,(398,0),(398,794),width=3)
@@ -49,12 +49,12 @@ COLOR2 = (220,20,60,255)
 COLOR3 = (250,128,114,255)
 COLOR4 = (78,238,149,255)
 
+LEFT = random.randrange(MINPOS,MAXPOS)
+TOP = random.randrange(MINPOS,MAXPOS)
+distance_from_center = math.hypot(LEFT-398,TOP-398)
+is_in_circle = distance_from_center <= screenwidth/2
+        
 for i in range(LOOP):
-
-    LEFT = random.randrange(MINPOS,MAXPOS)
-    TOP = random.randrange(MINPOS,MAXPOS)
-    distance_from_center = math.hypot(LEFT-398,TOP-398)
-    is_in_circle = distance_from_center <= screenwidth/2
     
     if is_in_circle:
         pygame.draw.circle(SCREEN, COLOR, [LEFT,TOP], RADIUS, SOLID)
@@ -62,16 +62,12 @@ for i in range(LOOP):
         pygame.draw.circle(SCREEN, COLOR2, [LEFT,TOP], RADIUS, SOLID)
 
 for i in range(LOOP):
-
-    LEFT = random.randrange(MINPOS,MAXPOS)
-    TOP = random.randrange(MINPOS,MAXPOS)
-    distance_from_center = math.hypot(LEFT-398,TOP-398)
-    is_in_circle = distance_from_center <= screenwidth/2
     
     if is_in_circle:
         pygame.draw.circle(SCREEN, COLOR3, [LEFT,TOP], RADIUS, SOLID)
     else:
         pygame.draw.circle(SCREEN, COLOR4, [LEFT,TOP], RADIUS, SOLID)
+
 
 
 pygame.display.update()
@@ -81,5 +77,5 @@ running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
+            running = False
             exit()
