@@ -6,4 +6,4 @@ class Rectangle:
         self.width = abs(w)
     
     def __str__(self):
-        return "x: ({self.x}, y:{self.y}), height: {self.height}, width: {self.width}"
+        return ((self.x,self.y), self.height,self.width)
