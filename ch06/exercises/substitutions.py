@@ -14,6 +14,4 @@ def main():
     fptr.write(text)
     fptr.close()
 
-
-
 main()
