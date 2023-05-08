@@ -1,19 +1,24 @@
-import word
+import requests
+import Cards
+import pprint
+import Kanye
+
 
 def main():
-    #Proxy Class
-    tapi = word.word()
-    results = tapi.get()
-    for trivia in results:
-        #combine the incorrect and corrects into a single array
-       
-        #shuffle the array for random order
+    deck = Cards.Cards(count=2)
+    results = deck.get()
+    yeezy = Kanye.Kanye()
+    you = pprint.pprint(results)
+    state = True
     
-        
-        print(f"{trivia}")
-        
-        #enumerate(): returns a tuple of the index and the value for each list item
-        #display all possible answers
-        
 
+    while state:
+        tool = (input("pick number:"))
+        if tool == you:
+            print(yeezy)
+        else:
+            print('no')
+
+
+        
 main()
