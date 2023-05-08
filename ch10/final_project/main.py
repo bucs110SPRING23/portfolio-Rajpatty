@@ -1,16 +1,24 @@
-import pygame
-
-# import your controller
-
+import Cards
+import Kanye
+import Dad
 
 def main():
-    pygame.init()
-    # Create an instance on your controller object
-    # Call your mainloop
+    deck = Cards.Cards(count=2)
+    results = deck.get()
+    yeezy = Kanye.Kanye()
+    chicago = yeezy.get()
+    father = Dad.Dad()
+    man = father.get()
+    state = True
+    
+    while state:
+        tool = (str(input("Choose a number or face card (uppercase) from a card deck:")))
+        if tool == results:
+            print(chicago)
+            break
+        else:
+            print(man)
+            break
+    print(results)
 
-    ###### NOTHING ELSE SHOULD GO IN main(), JUST THE ABOVE 3 LINES OF CODE ######
-
-
-# https://codefather.tech/blog/if-name-main-python/
-if __name__ == "__main__":
-    main()
+main()

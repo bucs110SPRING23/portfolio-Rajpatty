@@ -1,26 +1,66 @@
-import turtle #1. import modules
+import pygame
 import random
+import math
+pygame.init()
 
-#Part A
-window = turtle.Screen() # 2.  Create a screen
-window.bgcolor('lightblue')
+screenwidth = 800
+screenheight = 794
+screensize = [screenwidth,screenheight]
+window = pygame.display.set_mode((screensize))
 
-michelangelo = turtle.Turtle() # 3.  Create two turtles
-leonardo = turtle.Turtle()
-michelangelo.color('orange')
-leonardo.color('blue')
-michelangelo.shape('turtle')
-leonardo.shape('turtle')
+green = (0,139,69,255)
+red = (205,51,51,255)
+blue = (0,0,255,255)
 
-michelangelo.up() # 4. Pick up the pen so we don’t get lines
-leonardo.up()
-michelangelo.goto(-100,20)
-leonardo.goto(-100,-20)
+circleX = 400
+circleY = 397
+radius = 397
 
-## 5. Your PART A code goes here
+active = True
 
+while active:
+   for event in pygame.event.get():
+      if event.type == pygame.QUIT:
+         active = False
+   pygame.display.flip()
 
-# PART B - complete part B here
+   pygame.draw.circle(window,green,(circleX,circleY),radius) 
+   pygame.draw.line(window,red,(398,0),(398,794),width=3)
+   pygame.draw.line(window,red,(796,397),(3,397),width=3)
 
+SCREEN = window
 
-window.exitonclick()
+LENGTH = 5
+WIDTH = 5
+RADIUS = 5
+
+LOOPCOUNT = 10
+MINPOS = 0
+MAXPOS = 796
+
+SOLID = 0
+for i in range(LOOPCOUNT):
+
+    LEFT = random.randrange(MINPOS,MAXPOS)
+    TOP = random.randrange(MINPOS,MAXPOS)
+    distance_from_center = math.hypot(LEFT-398,TOP-398)
+    is_in_circle = distance_from_center <= screenwidth/2
+    
+    COLOR = (102,205,170,255)
+    COLOR2 = (220,20,60,255)
+
+    if is_in_circle:
+        pygame.draw.circle(SCREEN, COLOR, [LEFT,TOP], RADIUS, SOLID)
+    else:
+        pygame.draw.circle(SCREEN, COLOR2, [LEFT,TOP], RADIUS, SOLID)
+
+pygame.display.update()
+
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
