@@ -2,24 +2,22 @@ import Cards
 import Kanye
 import Dad
 
-
-
 def main():
     deck = Cards.Cards(count=2)
     results = deck.get()
     yeezy = Kanye.Kanye()
-    acid = yeezy.get()
-    state = True
+    chicago = yeezy.get()
     father = Dad.Dad()
-    pops = father.get()
+    man = father.get()
+    state = True
     
     while state:
         tool = (str(input("Choose a number or face card (uppercase) from a card deck:")))
         if tool == results:
-            print(acid)
+            print(chicago)
             break
         else:
-            print(pops)
+            print(man)
             break
     print(results)
 
